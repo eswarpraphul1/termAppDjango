@@ -1,0 +1,206 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="{% static 'jcubic-jquery.terminal-5132759/js/jquery-1.7.1.min.js' %}"></script>
+    <script src="{% static 'jcubic-jquery.terminal-5132759/js/jquery.mousewheel-min.js' %}"></script>
+    <script src="{% static 'jcubic-jquery.terminal-5132759/js/jquery.terminal.min.js' %}"></script>
+    <link href="{% static 'jcubic-jquery.terminal-5132759/css/jquery.terminal.css' %}" rel="stylesheet"/>
+    <title>Wedding BASH</title>
+    <style>
+        .blinking{
+        animation:blinkingText 1.4s linear infinite;
+    }
+    @keyframes blinkingText {  
+      100% { opacity: 0; }
+    }
+    </style>
+    <script type="text/javascript">
+
+    var list = [
+    "<pre class='out-text'>      1 - Universe - Hideaway.mp3</pre>",
+    "<pre class='out-text'>      2 - Kavinsky - Nightcall.mp3</pre>",
+    "<pre class='out-text'>      3 - Mark Ronson ft. Bruno Mars - Uptown Funk.mp3</pre>"];
+
+    var title = [
+    "<pre class='out-text' style='color: White'>              ,,        ,,         ,,                                                                            ,,                                                                      </pre>",
+    "<pre class='out-text' style='color: White'>      db     *MM      `7MM         db                                                                          `7MM                `7MM''''''YMM                                            </pre>",
+    "<pre class='out-text' style='color: White'>     ;MM:     MM        MM                                                                                       MM                  MM    `7                                            </pre>",
+    "<pre class='out-text' style='color: White'>    ,V^MM.    MM,dMMb.  MMpMMMb. `7MM `7MMpMMMb.   ,6''Yb.`7M'   `MF',6''Yb.     `7M'    ,A    `MF'.gP''Ya  ,M'''bMM  ,pP''Ybd       MM   d    ,pP''Ybd `7M'    ,A   `MF',6''Yb.  `7Mb,od8 </pre>",
+    "<pre class='out-text' style='color: White'>   ,M  `MM    MM    `Mb MM    MM   MM   MM    MM  8)   MM  VA   ,V 8)   MM        VA   ,VAA   ,V ,M'   Yb ,AP    MM  8I   `''        MMmmMM    8I   `''   VA   ,VAA   ,V 8)   MM    MM' ''' </pre>",
+    "<pre class='out-text' style='color: White'>   AbmmmqMA   MM     M8 MM    MM   MM   MM    MM   ,pm9MM   VA ,V   ,pm9MM         VA ,V  VA ,V  8M'''''' 8MI    MM  `YMMMa.         MM   Y  , `YMMMa.    VA ,V  VA ,V   ,pm9MM     MM     </pre>",
+    "<pre class='out-text' style='color: White'>  A'     VML  MM.   ,M9 MM    MM   MM   MM    MM  8M   MM    VVV   8M   MM          VVV    VVV   YM.    , `Mb    MM  L.   I8         MM     ,M L.   I8     VVV    VVV   8M   MM     MM     </pre>",
+    "<pre class='out-text' style='color: White'>.AMA.   .AMMA.P^YbmdP'.JMML  JMML.JMML.JMML  JMML.`Moo9^Yo.  ,V    `Moo9^Yo.         W      W     `Mbmmd'  `Wbmd''MML.M9mmmP'       .JMMmmmmMMM M9mmmP'      W      W    `Moo9^Yo .JMML.   </pre>",
+    "<pre class='out-text' style='color: White'>                                                            ,V                                                                                                                           </pre>",
+    "<pre class='out-text' style='color: White'>                                                         OOb''                                                                                                                            </pre>",
+    "<pre class='out-label' style='color: Red'><span class='blinking'><b>Website under construction!</span></b></pre>",
+    "<pre class='out-text'><span style='font-size: 15px'>Welcome to Eswar and Abhinaya's wedding terminal to earn our respect</span></pre>",
+    "<pre class='out-text'><br>To view the wedding commands type <b>wedding</b> on the terminal:</pre>",
+    "<pre class='out-text'><br>Wedding commands</pre>",
+    "<pre class='out-text'>      wedding                        - List of all available wedding commands</pre>",
+    "<pre class='out-text'><br>Other commands:</pre>",
+    "<pre class='out-text'>      internals                        - a peek inside the hood</pre>",
+    "<pre class='out-text'>      menu                             - view this banner again</pre>",
+    "<pre class='out-text'>Music control commands:</pre>",
+    "<pre class='out-text'>      musicoff      musicon      playlist      setmusic [value:1..3]</pre>"
+    ];
+
+    function print_text(str_array, term, delay) {
+        var i = 0;
+        (function print_str()
+        {
+            if(i<str_array.length)
+            {
+                term.echo(str_array[i], {raw:true});
+                i++;
+                setTimeout(print_str, delay);
+            }
+            else
+            {
+                term.echo();
+            }
+        }).call();
+    };
+
+    function proc() {
+        var term = this; //save context
+         $.getJSON(
+                '/terminal/cmd-json/',
+                {
+                    "cmd": app.last_cmd.name,
+                    "param" : app.last_cmd.args
+                }
+            )
+            .done( function(json) {
+                var name = app.last_cmd.name;
+		        print_text(json[name], term, 100);
+            })
+            .fail( function(jqxhr, status, error) {
+                console.log( error );
+            });
+    };
+
+    function wed() {
+        var term = this; //save context
+         $.getJSON(
+                '/terminal/wed-json/',
+                {
+                    "wedding": app.last_cmd.name,
+                    "param" : app.last_cmd.args
+                }
+            )
+            .done( function(json) {
+                var name = app.last_cmd.name;
+		        print_text(json[name], term, 100);
+            })
+            .fail( function(jqxhr, status, error) {
+                console.log( error );
+            });
+    };
+
+    var app = {
+
+        last_cmd: null,
+        bg_music: new Audio(),
+
+        menu: function() {
+		    this.clear()
+            print_text(title, this, 100);
+        },
+
+        musicoff: function() {
+            app.bg_music.pause();
+            app.bg_music.currentTime = 0;
+        },
+
+        musicon: function() {
+            app.bg_music.play();
+        },
+
+        setmusic: function(value) {
+            if(value == undefined)
+            {
+                this.error("Please set value");
+                return;
+            }
+            if(value > 3) { value = 3; }
+            if(value < 1) { value = 1; }
+
+            if(value == 1)
+                app.bg_music.src = "{% static 'sounds/Universe - Hideaway.mp3' %}";
+            if(value == 2)
+                app.bg_music.src = "{% static 'sounds/Kavinsky - Nightcall.mp3' %}";
+            if(value == 3)
+                app.bg_music.src = "{% static 'sounds/Mark Ronson ft. Bruno Mars - Uptown Funk.mp3' %}";
+        },
+
+        playlist: function() {
+	        print_text(list,this,100);
+        }
+
+    };
+
+    var option = {
+        greetings: null,
+
+	    prompt: "guest:$ ",
+
+        onBlur: function() {
+            return false;
+        },
+
+        completion: true,
+        checkArity: false,
+
+        onBeforeCommand: function(term, command){
+            app.last_cmd = $.terminal.parse_command(command);
+            return true;
+        },
+
+        onInit: function(term) {
+            print_text(title, term, 100);
+	    }
+    };
+
+    jQuery(document).ready( function($) {
+
+		app.bg_music.src = "{% static 'sounds/Universe - Hideaway.mp3' %}";
+        app.bg_music.autoplay = true;
+        app.bg_music.volume = 0.5;
+        $.getJSON(
+                '/terminal/init-json/',
+                {init:"menu"}
+        )
+        .done( function(json) {
+                for(i in json.cmd_list)
+                {
+                    var fname = json.cmd_list[i];
+                    app[fname] = proc;
+	            }
+                for(i in json.wed_list)
+                {
+                    var sname = json.wed_list[i];
+                    app[sname] = wed;
+	            }
+
+	            $('body').terminal(app, option);
+
+	            $('body').css("background", "#0C0C15");
+                $('.cmd').css("color", "#A8E5A9");
+                $('.cmd').css("background", "#0C0C15");
+                $('.terminal').css("color", "#D5D4EE");
+                $('.prompt').css("color", "#5EC460");
+
+        })
+        .fail( function(jqxhr, status, error) {
+                console.log( error );
+            }
+        )
+    });
+
+    </script>
+  </head>
+<body>
+
+</body>
