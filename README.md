@@ -11,7 +11,7 @@ A fun experiment to invite our geeky friends to the wedding
 	> https://virtualenv.pypa.io/en/latest/installation/
 
 2) Activate your virutal environment
-   > source <folder>/bin/activate
+   > source venv_folder/bin/activate
 
 3) Install django into linux
 	> https://docs.djangoproject.com/en/2.2/topics/install/#installing-an-official-release-with-pip
