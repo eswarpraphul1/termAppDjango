@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 import webbrowser
-import venky
+from . import venky
 
 
 # from django.core.context_processors import csrf
