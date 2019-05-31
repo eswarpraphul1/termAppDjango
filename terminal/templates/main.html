@@ -16,7 +16,12 @@
       100% { opacity: 0; }
     }
     </style>
+    <div id="terminal">
     <script type="text/javascript">
+    window.setInterval(function(){
+	      var elem = document.getElementById('terminal');
+	        elem.scrollTop = elem.scrollHeight;
+    }, 1000);
 
     var list = [
     "<pre class='out-text'>      1 - Universe - Hideaway.mp3</pre>",
@@ -24,16 +29,16 @@
     "<pre class='out-text'>      3 - Mark Ronson ft. Bruno Mars - Uptown Funk.mp3</pre>"];
 
     var title = [
-    "<pre class='out-text' style='color: White'>              ,,        ,,         ,,                                                                            ,,                                                                      </pre>",
-    "<pre class='out-text' style='color: White'>      db     *MM      `7MM         db                                                                          `7MM                `7MM''''''YMM                                            </pre>",
-    "<pre class='out-text' style='color: White'>     ;MM:     MM        MM                                                                                       MM                  MM    `7                                            </pre>",
-    "<pre class='out-text' style='color: White'>    ,V^MM.    MM,dMMb.  MMpMMMb. `7MM `7MMpMMMb.   ,6''Yb.`7M'   `MF',6''Yb.     `7M'    ,A    `MF'.gP''Ya  ,M'''bMM  ,pP''Ybd       MM   d    ,pP''Ybd `7M'    ,A   `MF',6''Yb.  `7Mb,od8 </pre>",
-    "<pre class='out-text' style='color: White'>   ,M  `MM    MM    `Mb MM    MM   MM   MM    MM  8)   MM  VA   ,V 8)   MM        VA   ,VAA   ,V ,M'   Yb ,AP    MM  8I   `''        MMmmMM    8I   `''   VA   ,VAA   ,V 8)   MM    MM' ''' </pre>",
-    "<pre class='out-text' style='color: White'>   AbmmmqMA   MM     M8 MM    MM   MM   MM    MM   ,pm9MM   VA ,V   ,pm9MM         VA ,V  VA ,V  8M'''''' 8MI    MM  `YMMMa.         MM   Y  , `YMMMa.    VA ,V  VA ,V   ,pm9MM     MM     </pre>",
-    "<pre class='out-text' style='color: White'>  A'     VML  MM.   ,M9 MM    MM   MM   MM    MM  8M   MM    VVV   8M   MM          VVV    VVV   YM.    , `Mb    MM  L.   I8         MM     ,M L.   I8     VVV    VVV   8M   MM     MM     </pre>",
-    "<pre class='out-text' style='color: White'>.AMA.   .AMMA.P^YbmdP'.JMML  JMML.JMML.JMML  JMML.`Moo9^Yo.  ,V    `Moo9^Yo.         W      W     `Mbmmd'  `Wbmd''MML.M9mmmP'       .JMMmmmmMMM M9mmmP'      W      W    `Moo9^Yo .JMML.   </pre>",
-    "<pre class='out-text' style='color: White'>                                                            ,V                                                                                                                           </pre>",
-    "<pre class='out-text' style='color: White'>                                                         OOb''                                                                                                                            </pre>",
+    "<pre class='out-text' style='font-size: 12px' style='color: White'>       u       ,,        ,,         ,,                                                                            ,,                                                                      </pre>",
+    "<pre class='out-text' style='font-size: 12px' style='color: White'>      db     *MM      `7MM         db                                                                          `7MM                `7MM''''''YMM                                            </pre>",
+    "<pre class='out-text' style='font-size: 12px' style='color: White'>     ;MM:     MM        MM                                                                                       MM                  MM    `7                                            </pre>",
+    "<pre class='out-text' style='font-size: 12px' style='color: White'>    ,V^MM.    MM,dMMb.  MMpMMMb. `7MM `7MMpMMMb.   ,6''Yb.`7M'   `MF',6''Yb.     `7M'    ,A    `MF'.gP''Ya  ,M'''bMM  ,pP''Ybd       MM   d    ,pP''Ybd `7M'    ,A   `MF',6''Yb.  `7Mb,od8 </pre>",
+    "<pre class='out-text' style='font-size: 12px' style='color: White'>   ,M  `MM    MM    `Mb MM    MM   MM   MM    MM  8)   MM  VA   ,V 8)   MM        VA   ,VAA   ,V ,M'   Yb ,AP    MM  8I   `''        MMmmMM    8I   `''   VA   ,VAA   ,V 8)   MM    MM' ''' </pre>",
+    "<pre class='out-text' style='font-size: 12px' style='color: White'>   AbmmmqMA   MM     M8 MM    MM   MM   MM    MM   ,pm9MM   VA ,V   ,pm9MM         VA ,V  VA ,V  8M'''''' 8MI    MM  `YMMMa.         MM   Y  , `YMMMa.    VA ,V  VA ,V   ,pm9MM     MM     </pre>",
+    "<pre class='out-text' style='font-size: 12px' style='color: White'>  A'     VML  MM.   ,M9 MM    MM   MM   MM    MM  8M   MM    VVV   8M   MM          VVV    VVV   YM.    , `Mb    MM  L.   I8         MM     ,M L.   I8     VVV    VVV   8M   MM     MM     </pre>",
+    "<pre class='out-text' style='font-size: 12px' style='color: White'>.AMA.   .AMMA.P^YbmdP'.JMML  JMML.JMML.JMML  JMML.`Moo9^Yo.  ,V    `Moo9^Yo.         W      W     `Mbmmd'  `Wbmd''MML.M9mmmP'       .JMMmmmmMMM M9mmmP'      W      W    `Moo9^Yo .JMML.   </pre>",
+    "<pre class='out-text' style='font-size: 12px' style='color: White'>                                                            ,V                                                                                                                           </pre>",
+    "<pre class='out-text' style='font-size: 12px' style='color: White'>                                                         OOb''                                                                                                                            </pre>",
     "<pre class='out-label' style='color: Red'><span class='blinking'><b>Website under construction!</span></b></pre>",
     "<pre class='out-text'><span style='font-size: 15px'>Welcome to Eswar and Abhinaya's wedding terminal</span></pre>",
     "<pre class='out-text'><br>Here you have to type in some commands, for example  <b>wedding</b> on to the terminal</pre>",
@@ -98,6 +103,10 @@
                 console.log( error );
             });
     };
+    // sleep time expects milliseconds
+    function sleep (time) {
+      return new Promise((resolve) => setTimeout(resolve, time));
+     }    
 
     var app = {
 
@@ -157,6 +166,10 @@
             app.last_cmd = $.terminal.parse_command(command);
             return true;
         },
+        onAfterCommand: function(cmd) {
+	    sleep(1000).then(() => {
+	    window.scrollTo(0,document.body.scrollHeight);
+	})},
 
         onInit: function(term) {
             print_text(title, term, 100);
@@ -185,7 +198,7 @@
 	            }
 
 	            $('body').terminal(app, option);
-
+                    $(document).scrollTop($(document).height());
 	            $('body').css("background", "#0C0C15");
                 $('.cmd').css("color", "#A8E5A9");
                 $('.cmd').css("background", "#0C0C15");
@@ -200,6 +213,7 @@
     });
 
     </script>
+   </div>
   </head>
 <body>
 
