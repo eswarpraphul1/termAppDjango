@@ -1,7 +1,7 @@
 boto==2.44.0
 chardet==2.3.0
 crcmod==1.7
-Django==1.11.20
+Django==1.11.23
 enum34==1.1.6
 google-compute-engine==2.8.13
 idna==2.2
